@@ -6,18 +6,19 @@ This project is part of the Software Engineer challenge for UpLearn. It implemen
 
 ### Getting started
 
-To use the function, you just need to import the `webpage.rb` file in your Ruby project and call the `fetch` method by providing a valid URL:
+To use the function, you just need to import the `webpage.rb` file in your Ruby project and call the `fetch` method by instantiating the `Webpage` class and providing a valid URL:
 
 ```ruby
 require './lib/webpage'
 
 base_url = "https://example.com/"
-results = Webpage.fetch(base_url)
+results = Webpage.new.fetch(base_url)
 print results
 ```
 
 ### Assumptions
-
+- I'm assuming that this code will be part of a larger web app. As such, the `Webpage` class encapsulates all the inner logic for parsing and extracting the `<img>` and `<a>` tags from an HTML page and exposes a neat and simple `fetch` API.
+- The `Webpage` class can be easily evolved to return additional tags if necessary by implementing the corresponding getters in the `helpers/html_tags` module.
 
 ### Project organization
 This project is organized into `/lib` and `/spec` subdirectories. The source code for the application is at `/lib`, while `/spec` contains all the unit tests.

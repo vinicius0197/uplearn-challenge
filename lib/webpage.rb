@@ -4,7 +4,7 @@ require 'uri'
 require 'pry'
 require 'net/http'
 require 'nokogiri'
-require 'helpers/html_tags'
+require_relative 'helpers/html_tags'
 
 # Contains methods for fetching a webpage and returning the img srcs and anchor links in the HTML source
 class Webpage

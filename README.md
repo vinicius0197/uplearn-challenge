@@ -9,7 +9,7 @@ This project is part of the Software Engineer challenge for UpLearn. It implemen
 To use the function, you just need to import the `webpage.rb` file in your Ruby project and call the `fetch` method by instantiating the `Webpage` class and providing a valid URL:
 
 ```ruby
-require './lib/webpage'
+require_relative './lib/webpage'
 
 base_url = "https://example.com/"
 results = Webpage.new.fetch(base_url)

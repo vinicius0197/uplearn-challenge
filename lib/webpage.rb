@@ -7,30 +7,32 @@ require 'nokogiri'
 
 # Contains methods for fetching a webpage and returning the img srcs and anchor links in the HTML source
 class Webpage
-  def self.fetch(url)
+  def fetch(url)
     raise 'Invalid URL' unless valid_url? url
 
     parsed_html = parse_html get_html(url)
     { assets: get_imgs(parsed_html), links: get_anchors(parsed_html) }
   end
 
-  def self.parse_html(html)
+  private
+
+  def parse_html(html)
     Nokogiri::HTML(html)
   end
 
-  def self.get_imgs(doc)
+  def get_imgs(doc)
     doc.css('img').map { |i| i['src'] }.compact
   end
 
-  def self.get_anchors(doc)
+  def get_anchors(doc)
     doc.css('a').map { |i| i['href'] }.compact
   end
 
-  def self.get_html(url)
+  def get_html(url)
     Net::HTTP.get(URI.parse(url))
   end
 
-  def self.valid_url?(uri)
+  def valid_url?(uri)
     uri = URI.parse(uri)
     if uri.is_a?(URI::HTTP) && !uri.host.nil?
       true

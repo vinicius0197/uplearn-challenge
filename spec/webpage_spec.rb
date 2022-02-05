@@ -24,11 +24,11 @@ describe Webpage do
     </html>'
   }
 
-  subject { Webpage.fetch(valid_url) }
+  subject { Webpage.new.fetch(valid_url) }
 
   context "calls fetch with a valid URL" do
     before do
-      allow(Webpage)
+      allow_any_instance_of(Webpage)
         .to receive(:get_html)
         .with(valid_url)
         .and_return(html_body)
@@ -69,7 +69,7 @@ describe Webpage do
 
   context "calls fetch with invalid URL" do
     it 'raises Invalid URL error' do
-      expect { Webpage.fetch(invalid_url) }.to raise_error(RuntimeError)
+      expect { Webpage.new.fetch(invalid_url) }.to raise_error(RuntimeError)
     end
   end
 end

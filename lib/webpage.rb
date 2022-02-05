@@ -19,15 +19,15 @@ class Webpage
   end
 
   def self.get_imgs(doc)
-    doc.css('img').map { |i| i['src'] }
+    doc.css('img').map { |i| i['src'] }.compact
   end
 
   def self.get_anchors(doc)
-    doc.css('a').map { |i| i['href'] }
+    doc.css('a').map { |i| i['href'] }.compact
   end
 
   def self.get_html(url)
-    Net::HTTP.get(url, '/index.html')
+    Net::HTTP.get(URI.parse(url))
   end
 
   def self.valid_url?(uri)

@@ -6,7 +6,7 @@ describe Webpage do
   let(:valid_url) { 'http://www.example.com' }
   let(:invalid_url) { 'invalid_url' }
 
-  let(:html_body) {
+  let(:html_body) do
     '<html>
       <head></head>
     <body>
@@ -22,11 +22,11 @@ describe Webpage do
       <a href="https://www.example4.com">link 1</a>
     </body>
     </html>'
-  }
+  end
 
   subject { Webpage.new.fetch(valid_url) }
 
-  context "calls fetch with a valid URL" do
+  context 'calls fetch with a valid URL' do
     before do
       allow_any_instance_of(Webpage)
         .to receive(:get_html)
@@ -64,10 +64,9 @@ describe Webpage do
     it 'contains the correct anchor hrefs' do
       expect(subject[:links]).to include('https://www.example1.com')
     end
-
   end
 
-  context "calls fetch with invalid URL" do
+  context 'calls fetch with invalid URL' do
     it 'raises Invalid URL error' do
       expect { Webpage.new.fetch(invalid_url) }.to raise_error(RuntimeError)
     end

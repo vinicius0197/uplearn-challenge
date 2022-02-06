@@ -1,6 +1,4 @@
 require 'webpage'
-require 'uri'
-require 'pry'
 
 describe Webpage do
   let(:valid_url) { 'http://www.example.com' }

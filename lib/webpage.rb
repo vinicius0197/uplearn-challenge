@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'uri'
-require 'pry'
 require 'net/http'
 require 'nokogiri'
 require_relative 'helpers/html_tags'

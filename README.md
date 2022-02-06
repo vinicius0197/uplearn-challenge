@@ -6,6 +6,9 @@ This project is part of the Software Engineer challenge for UpLearn. It implemen
 
 ### Getting started
 
+1. Make sure you have Ruby and Bundler installed (at least Ruby 2.6.4)
+2. Install dependencies with `bundle install`
+
 To use the function, you just need to import the `webpage.rb` file in your Ruby project and call the `fetch` method by instantiating the `Webpage` class and providing a valid URL:
 
 ```ruby

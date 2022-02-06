@@ -19,6 +19,9 @@ results = Webpage.new.fetch(base_url)
 print results
 ```
 
+### Running the test suite
+To run the test, you just need to run the `rspec` command after installing all dependencies. 
+
 ### Assumptions
 - I'm assuming that this code will be part of a larger web app. As such, the `Webpage` class encapsulates all the inner logic for parsing and extracting the `<img>` and `<a>` tags from an HTML page and exposes a neat and simple `fetch` API.
 - The `Webpage` class can be easily evolved to return additional tags if necessary by implementing the corresponding getters in the `helpers/html_tags` module.
